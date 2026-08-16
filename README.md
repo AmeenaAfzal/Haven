@@ -1,7 +1,9 @@
-**Description**
+**🏠HAVEN**
+
+**Description:**
 Haven is a peer-support web application designed for individuals living with chronic illness and isolation. The platform provides energy-matched micro-activities, topic-based chat rooms, and moderator-led events governed by an AI-moderated architecture.
 
-**Features**
+**Features:**
 
 * **Role-Based Access Control:** Role hierarchy consisting of User, Moderator, and Admin to manage community safety and application administration.
 * **Guided Onboarding:** Intake system that recommends topic-based support rooms based on user input.
@@ -10,22 +12,22 @@ Haven is a peer-support web application designed for individuals living with chr
 * **Event Management:** Event proposal workflows requiring admin verification of real public venues, RSVP tracking, and past-event memory logs.
 * **Custom UI Overlay System:** Custom toast and modal system replacing standard browser dialogs (`alert()`, `confirm()`, `prompt()`) to maintain application state during asynchronous flows.
 
-**Architecture**
+**Architecture:**
 
 * **Frontend:** Single-page application built with vanilla JavaScript using a centralized state object and dynamic `render()` cycle triggered by state updates.
 * **Backend:** Node.js and Express server (`server.js`) serving as a secure proxy to manage API requests and shield environment credentials.
 
-**Backend**
+**Backend:**
 
 * Node.js and Express application serving static assets out of the `/public` directory and routing proxy API calls.
 * Utilizes `dotenv` to keep third-party API keys secured on the server side.
 
-**API Endpoints**
+**API Endpoints:**
 
 * **`POST /api/classify`:** Executes parallel calls to OpenAI's Moderation endpoint and a `gpt-5.4-nano` classification model to categorize text into `ok`, `scam`, `crisis`, or `toxic`. Ambiguous outputs default to strict enforcement.
 * **`POST /api/quiz`:** Generates theme-based trivia questions for community rooms via LLM prompts.
 
-**Fault Tolerance**
+**Fault Tolerance:**
 
 * **Local Moderation Fallback:** If the backend or API key is unavailable, `/api/classify` falls back to a client-side keyword filter to ensure posts remain screened.
 * **Static Content Fallback:** `/api/quiz` automatically defaults to a static, pre-written question bank if external API calls fail.
